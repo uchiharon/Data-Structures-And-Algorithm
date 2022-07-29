@@ -3,14 +3,31 @@ value = [3,4,5,2,1,5]
 
 def merge_sort(value):
     if len(value) > 1:
-        print(value)
         mid = round(len(value)/2)
-        merge_sort(value[:mid])
-        merge_sort(value[mid:])
-    else:
-        print(value)
+        left_value = value[:mid]
+        right_value = value[mid:]
         
+        merge_sort(left_value)
+        merge_sort(right_value)
+        
+        i = 0
+        j = 0
+        k = 0
+        
+        while i < len(left_value) and j < len(right_value):
+            if left_value[i] < right_value[j]:
+                value[k] = left_value[i]
+                i += 1
+                k += 1
+            else:
+                value[k] = right_value[j]
+                j += 1
+                k += 1
+    print(value)
+
 merge_sort(value)
+        
+
         
 '''
 
