@@ -1,5 +1,4 @@
 value = [3,4,5,2,1,5]
-
 def merge_sort(value):
 # check if lenght of list is greater than one
     if len(value) > 1:
@@ -29,7 +28,7 @@ def merge_sort(value):
             value[k] = left_value[i]
             i += 1
             k += 1
-        while i < len(right_value):
+        while j < len(right_value):
             value[k] = right_value[j]
             j += 1
             k += 1
