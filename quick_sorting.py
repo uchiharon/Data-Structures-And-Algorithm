@@ -1,9 +1,12 @@
-value = [3,4,5,2,1,5]
 
-def quick_sort(value):
+
+def quick_sort(arr,left,right):
     left = 0
-    right = len(value) - 1
-    index = partition(value, left, right)
+    right = len(arr) - 1
+    index = partition(arr, left, right)
+    
+    if left<index: quick_sort(arr, left, index-1) #Sort left hand side
+    if index<right: quick_sort(arr, index, right) #sort right hand side
 
 
 def partition(arr, left, right):
@@ -16,12 +19,16 @@ def partition(arr, left, right):
             swap(arr, left, right)
             left +=1
             right -=1
-        
+        else:
+            swap(arr,left,pivot)
+    return left
 def swap(arr, left, right):
     arr[left], arr[right] = arr[left], arr[right]
         
-            
+value = [3,4,5,2,1,5]
+left = 0
+right = len(value)-1          
             
 
-quick_sort(value)
+quick_sort(value, left, right)
 print(value)
