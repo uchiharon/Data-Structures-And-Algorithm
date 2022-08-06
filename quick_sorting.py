@@ -1,34 +1,25 @@
-
-
 def quick_sort(arr,left,right):
-    left = 0
-    right = len(arr) - 1
-    index = partition(arr, left, right)
-    
-    if left<index: quick_sort(arr, left, index-1) #Sort left hand side
-    if index<right: quick_sort(arr, index, right) #sort right hand side
-
-
+    if left<right:
+        index = partition(arr, left, right)
+        quick_sort(arr, left, index-1) #Sort left hand side
+        quick_sort(arr, index+1, right) #sort right hand side
 def partition(arr, left, right):
-    pivot = arr[round((left+right)/2)]
-    while left <= right: 
-        while arr[left] < pivot: left +=1;
-        while arr[right] > pivot: left -=1;
-        
-        if left <= right:
-            swap(arr, left, right)
-            left +=1
-            right -=1
-        else:
-            swap(arr,left,pivot)
-    return left
+    i =left
+    j = right -1
+    pivot = right
+    while i < j: 
+        while i<right and arr[i] < arr[pivot]: i +=1;
+        while j>left and arr[j] >= arr[pivot]: j -=1;
+        if i < j:
+            swap(arr, left, right)        
+    if arr[i] > arr[pivot]:
+        swap(arr,i,pivot)
+    return i
 def swap(arr, left, right):
-    arr[left], arr[right] = arr[left], arr[right]
+    arr[left], arr[right] = arr[right], arr[left]
+############################Testing##########################       
         
-value = [3,4,5,2,1,5]
-left = 0
-right = len(value)-1          
+value = [3,4,5,2,1,5]         
             
-
-quick_sort(value, left, right)
+quick_sort(value, 0, len(value)-1)
 print(value)
