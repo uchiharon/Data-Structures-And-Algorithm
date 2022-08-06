@@ -11,9 +11,9 @@ def partition(arr, left, right):
         while i<right and arr[i] < arr[pivot]: i +=1;
         while j>left and arr[j] >= arr[pivot]: j -=1;
         if i < j:
-            swap(arr, left, right)        
+            swap(arr, i, j)        
     if arr[i] > arr[pivot]:
-        swap(arr,i,pivot)
+        swap(arr,i,right)
     return i
 def swap(arr, left, right):
     arr[left], arr[right] = arr[right], arr[left]
