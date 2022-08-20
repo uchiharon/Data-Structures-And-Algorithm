@@ -1,6 +1,6 @@
 import time
 # sample list
-a = [3,2,1,5,4,7,9,8]
+a = [21,4,1,3,9,20,25,6,21,14]
 count = len(a) - 1
 start = time.time()
 
