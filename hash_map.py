@@ -12,17 +12,23 @@ class hash_map():
             h += ord(i)
         return h % self.space
     
-    def add_value(self,key,value):
+    def __setitem__(self,key,value):
         h = self.get_hash(key)
         self.arr[h] = value
         
-    def get(self, key):
+    def __getitem__(self, key):
         h = self.get_hash(key)
         return self.arr[h]
+    
+    def __delitem__(self, key):
+        h = self.get_hash(key)
+        self.arr[h] = None
         
 ########################### Test Session #######################        
 test = hash_map()
-test.add_value("march 6",500)
+test["march 6"] = 500
 print(test.arr)
-print(test.get("march 6"))
+print(test["march 6"])
+del test["march 6"]
+print(test.arr)
     
